@@ -4,10 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Angular Versions
 
-Node version  - v1.1.0
-Npm version - 6.7.0
-Angular CLI - 7.1.0
-typescript  - 3.1.6
+Node version  - v1.1.0;
+Npm version - 6.7.0;
+Angular CLI - 7.1.0;
+typescript  - 3.1.6;
 
 ## Development server
 
