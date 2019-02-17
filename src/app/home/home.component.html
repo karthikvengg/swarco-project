@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-10">
+      <h3 *ngIf="tableData">{{tableData.headline}}</h3>
+  </div>
+  <div class="col-md-2">
+      Filter: <input  type="text" name="search" [(ngModel)]= "filter">
+  </div>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th (click)="sort('name')">Name
+            <i class="fas fa-sort" *ngIf="key === 'name'" [ngClass]="{'fa-sort-up':reverse,'fa-sort-down':!reverse}"></i>
+        </th>
+        <th (click)="sort('description')">Description
+            <i class="fas fa-sort" *ngIf="key === 'description'" [ngClass]="{'fa-sort-up':reverse,'fa-sort-down':!reverse}"></i>
+        </th>
+        <th (click)="sort('date')">Date
+            <i class="fas fa-sort" *ngIf="key === 'date'" [ngClass]="{'fa-sort-up':reverse,'fa-sort-down':!reverse}"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tableDataList | orderBy: key : reverse | filter: filter | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.date | date: 'MMM d, y'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
